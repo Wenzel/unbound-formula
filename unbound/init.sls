@@ -1,10 +1,16 @@
-{% from "unbound/map.jinja" import unbound with context %}
+{% from "unbound/map.jinja" import map with context %}
 
 unbound:
   pkg.installed:
-    - pkgs: {{ unbound.pkgs|json }}
+    - pkgs: {{ map.pkgs|json }}
   service.running:
-    - name: {{ unbound.service }}
+    - name: {{ map.service }}
+    - enable: True
+    - reload: True
+
+unbound_srv:
+  service.running:
+    - name: {{ map.service }}
     - enable: True
     - reload: True
 
