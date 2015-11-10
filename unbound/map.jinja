@@ -5,11 +5,11 @@
         'config_file': '/etc/unbound/unbound.conf',
         'config_src': 'salt://unbound/files/unbound.conf',
     },
-    'Fedora': {
+    'RedHat': {
         'pkgs': ['unbound'],
         'service': 'unbound',
         'config_file': '/etc/unbound/unbound.conf',
         'config_src': 'salt://unbound/files/unbound.conf',
     },
-}, grain='os', merge=salt['pillar.get']('unbound:lookup')) %}
+}, grain='os_family', merge=salt['pillar.get']('unbound:lookup')) %}
 
