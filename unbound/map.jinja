@@ -4,12 +4,16 @@
         'service': 'unbound',
         'config_file': '/etc/unbound/unbound.conf',
         'config_src': 'salt://unbound/files/unbound.conf',
+        'config_dir': '/etc/unbound',
+        'conf_d': 'unbound.conf.d',
     },
     'RedHat': {
         'pkgs': ['unbound'],
         'service': 'unbound',
         'config_file': '/etc/unbound/unbound.conf',
         'config_src': 'salt://unbound/files/unbound.conf',
+        'config_dir': '/etc/unbound',
+        'conf_d': 'conf.d',
     },
 }, grain='os_family', merge=salt['pillar.get']('unbound:lookup')) %}
 
