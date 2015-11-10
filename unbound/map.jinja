@@ -1,8 +1,15 @@
-{% set unbound = salt['grains.filter_by']({
+{% set map = salt['grains.filter_by']({
     'Debian': {
         'pkgs': ['unbound'],
         'service': 'unbound',
         'config_file': '/etc/unbound/unbound.conf',
         'config_src': 'salt://unbound/files/unbound.conf',
     },
+    'Fedora': {
+        'pkgs': ['unbound'],
+        'service': 'unbound',
+        'config_file': '/etc/unbound/unbound.conf',
+        'config_src': 'salt://unbound/files/unbound.conf',
+    },
 }, grain='os', merge=salt['pillar.get']('unbound:lookup')) %}
+
