@@ -9,7 +9,7 @@ unbound_config:
     - source: {{ map.config_src }}
     - template: jinja
     - context:
-        config: {{ salt['pillat.get']('unbound', {}) }}
+        config: {{ salt['pillar.get']('unbound', {}) }}
     - user: root
     - mode: 644
     - watch_in:
